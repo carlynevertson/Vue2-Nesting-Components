@@ -1,28 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<div>
+  <app-header></app-header>
+  <app-ninjas></app-ninjas>
+  <app-footer></app-footer>
+</div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import AppHeader from "@/components/AppHeader.vue";
+import AppFooter from "@/components/AppFooter.vue";
+import NinjasList from "@/components/NinjasList.vue";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    'app-header': AppHeader,
+    'app-footer': AppFooter,
+    'app-ninjas': NinjasList
+  },
+  data() {
+    return {
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+
 </style>
