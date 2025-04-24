@@ -1,15 +1,20 @@
 <script>
 export default {
+  props: {
+    ninjas: {
+      type: Array,
+      required: true,
+    }
+  },
   data () {
     return {
-      ninjas: [
-        {name: 'Ryu', specialty: 'Vue Components', show: false},
-        {name: 'Crystal', specialty: 'HTML Wizardry', show: false},
-        {name: 'Hitoshi', specialty: 'Click Events', show: false},
-        {name: 'Tango', specialty: 'Conditionals', show: false},
-        {name: 'Kami', specialty: 'Webpack', show: false},
-        {name: 'Yoshi', specialty: 'Data Diggin', show: false}
-      ]
+
+    }
+  },
+  methods: {
+    deleteNinja: function () {
+      // eslint-disable-next-line vue/no-mutating-props
+      this.ninjas.pop();
     }
   }
 }
@@ -23,6 +28,7 @@ export default {
         <h3 v-show="ninja.show">{{ninja.specialty}}</h3>
       </li>
     </ul>
+    <button v-on:click="deleteNinja">Delete Ninja</button>
   </div>
 </template>
 

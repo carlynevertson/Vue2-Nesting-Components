@@ -1,16 +1,28 @@
 <script>
+import {bus} from '../main';
+
   export default {
+    props: {
+      title: {
+        type: String,
+      }
+    },
     data() {
       return {
-        copyright: 'Copyright 2020 Vue Ninjas'
+        copyright: 'Copyright 2020'
       }
+    },
+    created() {
+      bus.$on('change-title', (data) => {
+        this.$emit('updateTitle', data);
+      })
     }
   }
 </script>
 
 <template>
   <footer>
-    <p>{{copyright}}</p>
+    <p>{{copyright}} {{title}}</p>
   </footer>
 </template>
 
